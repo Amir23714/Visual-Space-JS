@@ -1,0 +1,150 @@
+body {
+    margin: 0px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container{
+    margin : 0px 450px;
+
+}
+
+.main{
+    background-image: url("../img/bg.jpg");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: relative;
+}
+.header-line{
+    padding-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+
+.nav-text{
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 20px;
+
+    margin-right: 50px;
+
+    transition: color 0.3s linear;
+}
+.nav-text:hover{
+    color: crimson;
+}
+
+
+.header-logo img {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.header-logo img[alt] {
+    color: white;
+}
+
+
+.form-container {
+    margin-top: 100px;
+
+    background-color: white;
+    border-radius: 10px;
+    width: 500px;
+    height: 500px;
+
+    margin-left: 20%;
+}
+.registration {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+
+}
+
+.form-group-container{
+    text-align: right;
+}
+
+.form-group{
+
+    align-items: center;
+    margin: 10px;
+
+}
+
+.instructions-header{
+    margin-top: 70px;
+}
+
+
+.prompt-instructions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+.additional-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Это изменение центрирует элементы по правому краю */
+    margin-left: 10px;
+}
+
+.additional-prompt-element {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Распределение элементов внутри .additional-prompt-element по горизонтали */
+    margin-bottom: 5px; /* Установка отступа снизу между элементами */
+}
+
+.additional-prompt-element label {
+    flex: 1; /* Расширение label на всю доступную ширину */
+    margin-right: 10px; /* Отступ между label и input (10px) */
+    white-space: nowrap;
+}
+
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+    margin-top: 50px;
+}
+
+input {
+    color: black;
+    padding: 10px 20px;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    color: black;
+    padding: 10px 20px;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+
+
