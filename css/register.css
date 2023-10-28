@@ -145,6 +145,14 @@ input[type="checkbox"] {
 }
 
 
+.ResetButton {
+    margin-top: 0;
+    border : none;
+    background-color: transparent;
+}
 
+.ResetButtonText {
+    color: black;
+}
 
 

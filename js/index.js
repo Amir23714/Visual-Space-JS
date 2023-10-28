@@ -1,10 +1,46 @@
 const token = localStorage.getItem('access_token');
 
-if (!token) {
-    window.location.href = 'register.html';
+const auth_url = 'http://127.0.0.1:8000/api/auth';
+const api_url = 'http://127.0.0.1:8000/api/get_image';
+
+async function callAPI( url, method, body, headers){
+
+    const response = await fetch(url, {
+        method: method,
+        headers: headers,
+        body: JSON.stringify(body),
+    });
+    console.log(response.status);
+
+    return response
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+async function checkAuth(){
+
+    if (!token) {
+        window.location.href = 'register.html';
+    } else {
+
+        headers = {
+            'Content-Type': 'application/json',
+            'Authorization': token
+        }
+
+        const response = await callAPI(auth_url, "POST", null, headers);
+    
+        if (response.status != 200) {
+            
+            alert("Ваша сессия неактивна/истекла. Авторизуйтесь повторно")
+            localStorage.removeItem('access_token');
+            window.location.href = 'login.html';
+        }
+
+    }
+}
+
+checkAuth();
+
+document.addEventListener('DOMContentLoaded', async function() {
 
     const logoutLink = document.getElementById('logout-link');
 
@@ -19,23 +55,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 async function get_api() {
-    const url = 'http://127.0.0.1:8000/api/get_image'
+    
     const promptField = document.getElementById("main-prompt");
 
     const prompt = {
         prompt : promptField.value,
     }
 
-    const response = await fetch(url, {
-        method: 'POST',  // Используем метод POST
-        headers: {
-            'Authorization': token,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(prompt),
-    });
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': token
+    }
 
-    if (response.status === 200) {
+    const response = await callAPI(api_url, 'POST', prompt, headers);
+
+    if (response.status == 200) {
         const data = await response.json();
 
         const links = data['links'];
